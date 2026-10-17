@@ -1,0 +1,282 @@
+/* Dashboard styles. Plain CSS, no animations. */
+
+:root {
+  --rose: #d6336c;
+  --rose-dark: #b02456;
+  --ink: #232634;
+  --muted: #6b7185;
+  --line: #e4e7ee;
+  --soft: #f6f7fa;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--soft);
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* Header and footer */
+
+.site-header {
+  padding: 28px 0;
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.site-header h1 {
+  font-size: 28px;
+}
+
+.site-header p {
+  color: #b8bdd0;
+}
+
+.site-footer {
+  margin-top: 32px;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.banner {
+  margin: 24px 0 0;
+}
+
+.banner img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Cards */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.card {
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.card h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+.big-time {
+  margin-bottom: 4px;
+  font-family: "Courier New", monospace;
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--rose);
+}
+
+.small-text {
+  margin-bottom: 14px;
+  min-height: 21px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.check {
+  font-size: 14px;
+}
+
+.check input {
+  margin-right: 6px;
+}
+
+/* Timer */
+
+.timer-inputs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.timer-inputs div {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input[type="number"],
+input[type="text"] {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #c9cedb;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+input:focus {
+  outline: 2px solid var(--rose);
+  border-color: var(--rose);
+}
+
+.buttons .btn {
+  margin: 0 6px 6px 0;
+}
+
+.btn {
+  padding: 9px 18px;
+  background: var(--rose);
+  color: #ffffff;
+  border: 2px solid var(--rose);
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--rose-dark);
+  border-color: var(--rose-dark);
+}
+
+.btn-outline {
+  background: #ffffff;
+  color: var(--rose);
+}
+
+.btn-outline:hover {
+  color: #ffffff;
+}
+
+.btn:disabled {
+  background: #eceef3;
+  border-color: #eceef3;
+  color: #9aa0b3;
+  cursor: not-allowed;
+}
+
+.timer-done {
+  color: #1f9d55;
+}
+
+/* Counters */
+
+.counters-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.counters-top h2 {
+  margin: 0;
+}
+
+.counter-form {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  max-width: 460px;
+}
+
+.counter-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.counter {
+  padding: 16px;
+  text-align: center;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.counter h3 {
+  margin-bottom: 6px;
+  font-size: 16px;
+  word-break: break-word;
+}
+
+.counter-value {
+  margin-bottom: 10px;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.counter .btn {
+  padding: 6px 12px;
+  margin: 0 2px;
+}
+
+.remove-button {
+  display: block;
+  margin: 10px auto 0;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Tablet and phone */
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .counter-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .counter-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .counter-form {
+    flex-direction: column;
+    max-width: none;
+    width: 100%;
+  }
+
+  .big-time {
+    font-size: 40px;
+  }
+}

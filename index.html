@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clock, Timer and Counter Dashboard</title>
+  <meta name="description" content="A small dashboard with a live clock, a countdown timer and counters. Built with plain JavaScript.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <h1>My Dashboard</h1>
+      <p>A live clock, a countdown timer and some counters.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="banner">
+      <img src="images/dashboard-banner.jpg" alt="Clock and charts illustration" onerror="this.style.display='none'">
+    </div>
+
+    <div class="grid">
+
+      <!-- Clock -->
+      <section class="card" id="clock-card">
+        <h2>Clock</h2>
+        <p class="big-time" id="clock-time">--:--:--</p>
+        <p class="small-text" id="clock-date"></p>
+        <label class="check">
+          <input type="checkbox" id="clock-24h"> Use 24-hour format
+        </label>
+      </section>
+
+      <!-- Timer -->
+      <section class="card" id="timer-card">
+        <h2>Timer</h2>
+        <p class="big-time" id="timer-display">05:00</p>
+        <p class="small-text" id="timer-status" role="status">Set the time and press Start.</p>
+
+        <div class="timer-inputs">
+          <div>
+            <label for="timer-minutes">Minutes</label>
+            <input type="number" id="timer-minutes" min="0" max="99" value="5">
+          </div>
+          <div>
+            <label for="timer-seconds">Seconds</label>
+            <input type="number" id="timer-seconds" min="0" max="59" value="0">
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="button" class="btn" id="timer-start">Start</button>
+          <button type="button" class="btn btn-outline" id="timer-pause" disabled>Pause</button>
+          <button type="button" class="btn btn-outline" id="timer-reset">Reset</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Counters -->
+    <section class="card counters">
+      <div class="counters-top">
+        <h2>Counters</h2>
+        <form id="counter-form" class="counter-form">
+          <label for="counter-name" class="visually-hidden">Counter name</label>
+          <input type="text" id="counter-name" placeholder="Counter name, for example Glasses of water" maxlength="30">
+          <button type="submit" class="btn">Add counter</button>
+        </form>
+      </div>
+      <p class="small-text" id="counter-message" role="status"></p>
+
+      <div class="counter-list" id="counter-list"></div>
+      <p class="small-text" id="counter-empty">No counters yet. Add your first one above.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>A practice project built with HTML, CSS and JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/clock.js"></script>
+  <script src="js/timer.js"></script>
+  <script src="js/counters.js"></script>
+</body>
+</html>
